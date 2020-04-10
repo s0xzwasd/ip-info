@@ -1,4 +1,6 @@
 {
-  "presets": [["@babel/env", { "debug": true }]],
-  "plugins": ["@babel/proposal-class-properties", "@babel/proposal-decorators"]
+  "presets": [
+    ["@babel/env", { "debug": true, "corejs": { "version": 3, "proposals": true }, "useBuiltIns": "usage" }],
+    "@babel/react"
+  ]
 }
