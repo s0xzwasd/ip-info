@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import styles from "./main.css";
+import styles from "./main.less";
 import react from "./react.png";
 
 const App = () => {

@@ -21,12 +21,15 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
+        test: /\.less$/i,
         use: [
           "style-loader",
           {
             loader: "css-loader",
             options: { modules: true, sourceMap: true },
+          },
+          {
+            loader: "less-loader",
           },
         ],
       },
