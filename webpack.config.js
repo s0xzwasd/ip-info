@@ -1,11 +1,12 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "bundle.js",
+    filename: "main.js",
   },
   module: {
     rules: [
@@ -23,13 +24,21 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
-          "style-loader",
+          {
+            loader: "style-loader",
+          },
           {
             loader: "css-loader",
-            options: { modules: true, sourceMap: true },
+            options: {
+              modules: true,
+              sourceMap: true,
+            },
           },
           {
             loader: "less-loader",
+            options: {
+              sourceMap: true,
+            },
           },
         ],
       },
@@ -42,4 +51,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+    }),
+  ],
 };
