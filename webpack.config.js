@@ -21,6 +21,16 @@ module.exports = {
         },
       },
       {
+        test: /\.css$/i,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { modules: true, sourceMap: true },
+          },
+        ],
+      },
+      {
         test: /\.(png|jpe?g|gif)$/i,
         loader: "file-loader",
         options: {
