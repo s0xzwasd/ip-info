@@ -13,7 +13,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[hash:10].css",
+    }),
   ],
   module: {
     rules: [
@@ -60,5 +62,11 @@ module.exports = {
         },
       },
     ],
+  },
+  devServer: {
+    open: true,
+    compress: true,
+    port: 1337,
+    clientLogLevel: "silent",
   },
 };
