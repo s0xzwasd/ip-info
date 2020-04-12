@@ -35,6 +35,24 @@ module.exports = (env = {}) => {
     ];
   };
 
+  const getPlugins = () => {
+    const plugins = [
+      new HtmlWebpackPlugin({
+        template: "src/index.html",
+      }),
+    ];
+
+    if (isProduction) {
+      plugins.push(
+        new MiniCssExtractPlugin({
+          filename: "[hash:10].css",
+        })
+      );
+    }
+
+    return plugins;
+  };
+
   return {
     mode: isProduction ? "production" : isDevelopment && "development",
     entry: "./src/main.js",
@@ -42,14 +60,7 @@ module.exports = (env = {}) => {
       path: path.resolve(__dirname, "build"),
       filename: "main.js",
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: "src/index.html",
-      }),
-      new MiniCssExtractPlugin({
-        filename: "[hash:10].css",
-      }),
-    ],
+    plugins: getPlugins(),
     module: {
       rules: [
         {
