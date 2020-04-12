@@ -4,8 +4,8 @@
   "description": "Using the service, you can get information about the current IP, connection, location (region, city, etc.), time zone.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress",
-    "build": "webpack",
+    "start": "webpack-dev-server --env.mode=development --progress",
+    "build": "webpack --env.mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
