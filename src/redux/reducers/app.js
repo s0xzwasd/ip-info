@@ -1,7 +1,7 @@
 import { SHOW_LOADER, HIDE_LOADER } from "../types";
 
 const initialState = {
-  loading: false,
+  loading: "loading",
 };
 
 export default (state = initialState, action) => {

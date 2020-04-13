@@ -1,7 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Mainpage = () => {
-  return <div>Hello, Main Page!</div>;
+const Mainpage = ({ loading }) => {
+  return <div>Hello, Main Page! {loading}</div>;
 };
 
-export default Mainpage;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.app.loading,
+  };
+};
+
+export default connect(mapStateToProps)(Mainpage);
