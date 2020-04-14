@@ -55,13 +55,22 @@ module.exports = (env = {}) => {
 
   return {
     mode: isProduction ? "production" : isDevelopment && "development",
+    entry: "./src/index.tsx",
     output: {
       path: path.resolve(__dirname, "build"),
       filename: "main.js",
     },
+    resolve: {
+      extensions: [".js", ".ts", ".tsx"],
+    },
     plugins: getPlugins(),
     module: {
       rules: [
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
