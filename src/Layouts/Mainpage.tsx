@@ -1,8 +1,5 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
 
-const Mainpage = () => {
-  return <div>Hello, Main Page!</div>;
-};
+const Mainpage = () => <div>Hello, Main Page!</div>;
 
 export default Mainpage;
