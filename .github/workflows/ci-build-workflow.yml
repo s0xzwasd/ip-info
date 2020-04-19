@@ -1,5 +1,8 @@
-name: Build & Linting
-on: [push]
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -13,11 +16,13 @@ jobs:
         run: |
           yarn install
 
-      - name: Linting and tests 🔎
-        run: |
-          yarn lint
-          yarn test
-
       - name: Build 🔧
         run: |
           yarn build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
