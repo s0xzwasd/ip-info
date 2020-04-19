@@ -1,5 +1,6 @@
 import React from 'react';
+import Card from '../components/Card/Card';
 
-const Mainpage = () => <div>Hello, Main Page!</div>;
+const Mainpage = () => <Card description="Card description" data="Card data" />;
 
 export default Mainpage;
