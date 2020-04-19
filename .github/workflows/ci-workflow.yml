@@ -9,14 +9,22 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install and Build 🔧
+      - name: Install dependences 🎠
         run: |
-          npm install
-          npm run build
+          yarn install
+
+      - name: Linting and tests 🔎
+        run: |
+          yarn lint
+          yarn test
+
+      - name: Build 🔧
+        run: |
+          yarn build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
+          BRANCH: gh-pages
+          FOLDER: build
