@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -10,14 +11,14 @@ module.exports = (env = {}) => {
   const getStyleLoaders = () => [
     isProduction
       ? {
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          publicPath: '/build',
-        },
-      }
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            publicPath: '/build',
+          },
+        }
       : {
-        loader: 'style-loader',
-      },
+          loader: 'style-loader',
+        },
     {
       loader: 'css-loader',
       options: {
@@ -45,6 +46,12 @@ module.exports = (env = {}) => {
         new MiniCssExtractPlugin({
           filename: '[hash:10].css',
         }),
+        new webpack.HashedModuleIdsPlugin({
+          context: __dirname,
+          hashFunction: 'sha256',
+          hashDigest: 'hex',
+          hashDigestLength: 20,
+        }),
       );
     }
 
@@ -62,6 +69,9 @@ module.exports = (env = {}) => {
       extensions: ['.js', '.ts', '.tsx'],
     },
     plugins: getPlugins(),
+    optimization: {
+      runtimeChunk: true,
+    },
     module: {
       rules: [
         {
