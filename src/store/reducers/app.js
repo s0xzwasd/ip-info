@@ -1,7 +1,8 @@
-import { SHOW_LOADER, HIDE_LOADER } from '../types';
+import { SHOW_LOADER, HIDE_LOADER, FETCH_IP } from '../types';
 
 const initialState = {
   loading: 'loading',
+  ip: '',
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +11,8 @@ export default (state = initialState, action) => {
       return { ...state, loading: true };
     case HIDE_LOADER:
       return { ...state, loading: false };
+    case FETCH_IP:
+      return { ...state, ip: action.payload };
     default:
       return state;
   }
