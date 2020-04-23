@@ -11,14 +11,14 @@ module.exports = (env = {}) => {
   const getStyleLoaders = () => [
     isProduction
       ? {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            publicPath: '/build',
-          },
-        }
-      : {
-          loader: 'style-loader',
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '/build',
         },
+      }
+      : {
+        loader: 'style-loader',
+      },
     {
       loader: 'css-loader',
       options: {
