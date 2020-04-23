@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import configureStore from './redux/store';
+import configureStore from './store/store';
 import Mainpage from './Layouts/Mainpage';
 
 const store = configureStore();
