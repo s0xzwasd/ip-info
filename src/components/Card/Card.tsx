@@ -1,6 +1,7 @@
 import React from 'react';
 import Description from '../Description/Description';
 import CardWrapper from '../CardWrapper/CardWrapper';
+import Spinner from '../Spinner/Spinner';
 
 type Props = {
   description: string;
@@ -10,7 +11,7 @@ type Props = {
 const Card: React.FC<Props> = ({ description, data }) => (
   <section>
     <Description>{description}</Description>
-    <CardWrapper>{data}</CardWrapper>
+    <CardWrapper>{data || <Spinner />}</CardWrapper>
   </section>
 );
 
