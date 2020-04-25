@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Card from '../components/Card/Card';
 import Map from '../components/Map/Map';
 import styles from './Mainpage.less';
 
-const Mainpage = () => (
-  <div className={styles.mainpage}>
-    <Card description="Current IP" data="192.168.1.1" />
-    <Card description="Country / Currency" data="Finland" />
-    <Card description="Provider" data="SE ONLINE ETC." />
-    <Map />
-  </div>
-);
+import fetchIP from '../store/actions/fetchIp';
 
-export default Mainpage;
+class Mainpage extends Component {
+  async componentDidMount() {
+    const { fetchData }: any = this.props;
+
+    fetchData();
+  }
+
+  render() {
+    const { ip, country, provider }: any = this.props;
+
+    return (
+      <div className={styles.mainpage}>
+        <Card description="Current IP" data={ip} />
+        <Card description="Country / Currency" data={country} />
+        <Card description="Provider" data={provider} />
+        <Map />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state: any) => ({
+  ip: state.data.ip.query,
+  country: state.data.ip.country,
+  provider: state.data.ip.isp,
+});
+
+const mapDispatchToProps = {
+  fetchData: fetchIP,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Mainpage);

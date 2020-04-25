@@ -2,7 +2,7 @@ import { SHOW_LOADER, HIDE_LOADER, FETCH_IP } from '../types';
 
 const initialState = {
   loading: 'loading',
-  ip: '',
+  ip: 'Coun',
 };
 
 export default (state = initialState, action) => {
