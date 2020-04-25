@@ -14,12 +14,17 @@ class Mainpage extends Component {
   }
 
   render() {
-    const { ip, country, provider }: any = this.props;
+    const {
+      ip, country, currency, provider,
+    }: any = this.props;
 
     return (
       <div className={styles.mainpage}>
         <Card description="Current IP" data={ip} />
-        <Card description="Country / Currency" data={country} />
+        <Card
+          description="Country / Currency"
+          data={`${country} / ${currency}`}
+        />
         <Card description="Provider" data={provider} />
         <Map />
       </div>
@@ -30,6 +35,7 @@ class Mainpage extends Component {
 const mapStateToProps = (state: any) => ({
   ip: state.data.ip.query,
   country: state.data.ip.country,
+  currency: state.data.ip.currency,
   provider: state.data.ip.isp,
 });
 
