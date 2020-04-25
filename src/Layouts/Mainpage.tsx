@@ -27,13 +27,11 @@ class Mainpage extends Component {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  return {
-    ip: state.app.ip.query,
-    country: state.app.ip.country,
-    provider: state.app.ip.isp,
-  };
-};
+const mapStateToProps = (state: any) => ({
+  ip: state.app.ip.query,
+  country: state.app.ip.country,
+  provider: state.app.ip.isp,
+});
 
 const mapDispatchToProps = {
   fetchData: fetchIP,
