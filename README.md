@@ -9,9 +9,9 @@ Using the service, you can get detailed information about your IP address, brows
 ## Application functionality
 
 - [ ] The user can see the information by their IP address, namely:
-  - [ ] IP address
-  - [ ] Country / currency
-  - [ ] Provider
+  - [x] IP address
+  - [x] Country / currency
+  - [x] Provider
   - [ ] Mobile Internet or proxy is used
   - [ ] Current location on map
 - [ ] The user sees his current location.
