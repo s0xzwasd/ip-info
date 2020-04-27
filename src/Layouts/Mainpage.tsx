@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '../components/Card/Card';
-import Map from '../components/Map/Map';
+import Location from '../components/Location/Location';
 import styles from './Mainpage.less';
 
 import fetchIP from '../store/actions/fetchIp';
@@ -21,12 +21,9 @@ class Mainpage extends Component {
     return (
       <div className={styles.mainpage}>
         <Card description="Current IP" data={ip} />
-        <Card
-          description="Country / Currency"
-          data={`${country} / ${currency}`}
-        />
+        <Card description="Country / Currency" data={`${country} / ${currency}`} />
         <Card description="Provider" data={provider} />
-        <Map />
+        <Location />
       </div>
     );
   }
