@@ -1,10 +1,10 @@
 import { FETCH_IP } from '../types';
 
 const initialState = {
-  ip: '',
+  ip: {},
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any) => {
   switch (action.type) {
     case FETCH_IP:
       return { ...state, ip: action.payload };

@@ -5,7 +5,7 @@ import Spinner from '../Spinner/Spinner';
 
 type Props = {
   description: string;
-  data: JSX.Element | string;
+  data: React.ReactElement | string;
 };
 
 const Card: React.FC<Props> = ({ description, data }) => (
