@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './CardWrapper.less';
 
 type Props = {
-  children: JSX.Element | string;
+  children: React.ReactElement | string;
 };
 
 const CardWrapper: React.FC<Props> = ({ children }) => (
