@@ -18,7 +18,7 @@ const Location: React.FC<Props> = ({ lat, lon }) => (
   </Map>
 );
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): Props => ({
   lat: state.data.ip.lat,
   lon: state.data.ip.lon,
 });
