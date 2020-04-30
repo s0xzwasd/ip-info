@@ -6,9 +6,21 @@ import styles from './Mainpage.less';
 
 import fetchIP from '../store/actions/fetchIp';
 
-class Mainpage extends Component {
-  async componentDidMount() {
-    const { fetchData }: any = this.props;
+type StateFromProps = {
+  ip: string;
+  country: string;
+  currency: string;
+  provider: string;
+  fetchData?: Function;
+};
+
+type DispatchFromProps = {
+  fetchData: Function;
+};
+
+class Mainpage extends Component<StateFromProps> {
+  async componentDidMount(): Promise<void> {
+    const { fetchData } = this.props;
 
     fetchData();
   }
@@ -16,7 +28,7 @@ class Mainpage extends Component {
   render() {
     const {
       ip, country, currency, provider,
-    }: any = this.props;
+    } = this.props;
 
     return (
       <div className={styles.mainpage}>
@@ -29,15 +41,18 @@ class Mainpage extends Component {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any): StateFromProps => ({
   ip: state.data.ip.query,
   country: state.data.ip.country,
   currency: state.data.ip.currency,
   provider: state.data.ip.isp,
 });
 
-const mapDispatchToProps = {
+const mapDispatchToProps: DispatchFromProps = {
   fetchData: fetchIP,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mainpage);
+export default connect<StateFromProps, DispatchFromProps>(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Mainpage);

@@ -66,7 +66,7 @@ module.exports = (env = {}) => {
       filename: 'main.js',
     },
     resolve: {
-      extensions: ['.js', '.ts', '.tsx'],
+      extensions: ['.ts', '.tsx', '.js'],
     },
     plugins: getPlugins(),
     optimization: {
@@ -121,13 +121,6 @@ module.exports = (env = {}) => {
       compress: true,
       port: 1337,
       clientLogLevel: 'silent',
-      headers: {
-        'Access-Control-Allow-Origin': 'http://localhost:3000',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Headers':
-          'Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      },
     },
   };
 };
