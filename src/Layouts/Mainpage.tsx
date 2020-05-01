@@ -22,7 +22,9 @@ class Mainpage extends Component<StateFromProps> {
   async componentDidMount(): Promise<void> {
     const { fetchData } = this.props;
 
-    fetchData();
+    if (fetchData) {
+      fetchData();
+    }
   }
 
   render() {
