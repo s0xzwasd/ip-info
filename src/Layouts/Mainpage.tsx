@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Bowser from 'bowser';
 import { connect } from 'react-redux';
 import Card from '../components/Card/Card';
 import Location from '../components/Location/Location';
@@ -33,6 +34,7 @@ class Mainpage extends Component<StateFromProps> {
     const {
       ip, country, currency, provider, mobile, proxy,
     } = this.props;
+    const bowser = Bowser.parse(window.navigator.userAgent);
 
     return (
       <div className={styles.mainpage}>
@@ -45,8 +47,8 @@ class Mainpage extends Component<StateFromProps> {
           large
           data={`
             Mobile internet / Proxy: ${mobile ? 'Yes' : 'No'} / ${proxy ? 'Yes' : 'No'}\n
-            Browser: ${navigator.appName}\n
-            Operating System: ${navigator.platform}
+            Browser: ${bowser.browser.name} ${bowser.browser.version}\n
+            Operating System: ${bowser.os.name} ${bowser.os.versionName}
           `}
         />
       </div>
