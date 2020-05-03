@@ -38,7 +38,15 @@ class Mainpage extends Component<StateFromProps> {
         <Card description="Country / Currency" data={`${country} / ${currency}`} />
         <Card description="Provider" data={provider} />
         <Location />
-        <Card className={styles['large-card']} large data="test" />
+        <Card
+          className={styles['large-card']}
+          large
+          data={`
+            Mobile internet: No\n
+            Browser: ${country}\n
+            Operating System: Windows
+          `}
+        />
       </div>
     );
   }
