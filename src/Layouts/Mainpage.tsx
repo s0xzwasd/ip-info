@@ -11,6 +11,8 @@ type StateFromProps = {
   country: string;
   currency: string;
   provider: string;
+  mobile: boolean;
+  proxy: boolean;
   fetchData?: Function;
 };
 
@@ -29,7 +31,7 @@ class Mainpage extends Component<StateFromProps> {
 
   render() {
     const {
-      ip, country, currency, provider,
+      ip, country, currency, provider, mobile, proxy,
     } = this.props;
 
     return (
@@ -42,8 +44,8 @@ class Mainpage extends Component<StateFromProps> {
           className={styles['large-card']}
           large
           data={`
-            Mobile internet: No\n
-            Browser: ${country}\n
+            Mobile internet / Proxy: ${mobile ? 'Yes' : 'No'} / ${proxy ? 'Yes' : 'No'}\n
+            Browser: Google Chrome 78\n
             Operating System: Windows
           `}
         />
@@ -57,6 +59,8 @@ const mapStateToProps = (state: any): StateFromProps => ({
   country: state.data.ip.country,
   currency: state.data.ip.currency,
   provider: state.data.ip.isp,
+  mobile: state.data.ip.mobile,
+  proxy: state.data.ip.proxy,
 });
 
 const mapDispatchToProps: DispatchFromProps = {
