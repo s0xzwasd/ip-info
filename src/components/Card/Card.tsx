@@ -4,14 +4,18 @@ import CardWrapper from '../CardWrapper/CardWrapper';
 import Spinner from '../Spinner/Spinner';
 
 type Props = {
-  description: string;
+  className?: string;
+  description?: string;
   data: React.ReactElement | string;
+  large?: boolean;
 };
 
-const Card: React.FC<Props> = ({ description, data }) => (
-  <section>
-    <Description>{description}</Description>
-    <CardWrapper>{data || <Spinner />}</CardWrapper>
+const Card: React.FC<Props> = ({
+  className, description, data, large,
+}) => (
+  <section className={className}>
+    <Description>{description!}</Description>
+    <CardWrapper large={large}>{data || <Spinner />}</CardWrapper>
   </section>
 );
 
