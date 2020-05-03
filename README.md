@@ -2,19 +2,18 @@
 
 Using the service, you can get detailed information about your IP address, browser and its settings.
 
-[Try It Out!]()
+[Try It Out!](http://ip-info.surge.sh/)
 
 [Trello Project Board](https://trello.com/b/ZBXRNgce)
 
 ## Application functionality
 
-- [ ] The user can see the information by their IP address, namely:
+- [x] The user can see the information by their IP address, namely:
   - [x] IP address
   - [x] Country / currency
   - [x] Provider
-  - [ ] Mobile Internet or proxy is used
-  - [ ] Current location on map
-- [ ] The user sees his current location.
+  - [x] Mobile Internet or proxy is used
+- [x] The user sees his current location.
 - [ ] The user can search for another user by IP (on a separate page).
 
 ### Additional functionality
@@ -27,6 +26,5 @@ Using the service, you can get detailed information about your IP address, brows
 - TypeScript
 - React + Redux
 - CSS Modules
-- Jest
-- Immer
 - Github actions
+- Jest
