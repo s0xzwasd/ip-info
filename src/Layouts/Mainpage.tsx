@@ -30,7 +30,9 @@ class Mainpage extends Component<StateFromProps> {
   }
 
   render() {
-    const { ip, country, currency, provider, mobile, proxy } = this.props;
+    const {
+      ip, country, currency, provider, mobile, proxy,
+    } = this.props;
 
     return (
       <div className={styles.mainpage}>
