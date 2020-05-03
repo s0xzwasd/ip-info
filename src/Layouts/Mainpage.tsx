@@ -45,8 +45,8 @@ class Mainpage extends Component<StateFromProps> {
           large
           data={`
             Mobile internet / Proxy: ${mobile ? 'Yes' : 'No'} / ${proxy ? 'Yes' : 'No'}\n
-            Browser: Google Chrome 78\n
-            Operating System: Windows
+            Browser: ${navigator.appName}\n
+            Operating System: ${navigator.platform}
           `}
         />
       </div>
