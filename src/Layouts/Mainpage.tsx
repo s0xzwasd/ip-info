@@ -35,7 +35,7 @@ class Mainpage extends Component<StateFromProps> {
     const {
       ip, country, currency, provider, mobile, proxy,
     } = this.props;
-    const bowser = Bowser.parse(window.navigator.userAgent);
+    const browser = Bowser.parse(window.navigator.userAgent);
 
     return (
       <div className={styles.mainpage}>
@@ -49,11 +49,13 @@ class Mainpage extends Component<StateFromProps> {
         <Card
           className={styles['large-card']}
           large
-          data={`
-            Mobile internet / Proxy: ${mobile ? 'Yes' : 'No'} / ${proxy ? 'Yes' : 'No'}\n
-            Browser: ${bowser.browser.name} ${bowser.browser.version}\n
-            Operating System: ${bowser.os.name} ${bowser.os.versionName}
-          `}
+          data={(
+            <ul>
+              <li>{`Mobile internet / Proxy: ${mobile ? 'Yes' : 'No'} / ${proxy ? 'Yes' : 'No'}`}</li>
+              <li>{`Browser: ${browser.browser.name} ${browser.browser.version}`}</li>
+              <li>{`Operating System: ${browser.os.name} ${browser.os.versionName}`}</li>
+            </ul>
+          )}
         />
       </div>
     );
