@@ -45,11 +45,11 @@ class Mainpage extends Component<StateFromProps> {
 
     return (
       <Router>
+        <ul className={styles.menu}>
+          <li className={styles['menu-item']}><Link to="/">About me</Link></li>
+          <li className={styles['menu-item']}><Link to="/search">Search</Link></li>
+        </ul>
         <div className={styles.mainpage}>
-          <ul>
-            <li><Link to="/">About me</Link></li>
-            <li><Link to="/search">Search</Link></li>
-          </ul>
           <Switch>
             <Route path="/search">
               <h2>Search</h2>
