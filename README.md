@@ -1,4 +1,7 @@
 # ip-info
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/s0xzwasd/ip-info/Build%20&%20Deploy) ![GitHub](https://img.shields.io/github/license/s0xzwasd/ip-info) ![GitHub repo size](https://img.shields.io/github/repo-size/s0xzwasd/ip-info)
+
+![ip-info project in browser looks like](https://i.imgur.com/aQNnXdV.png)
 
 Using the service, you can get detailed information about your IP address, browser and its settings.
 
