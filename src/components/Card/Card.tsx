@@ -2,6 +2,7 @@ import React from 'react';
 import Description from '../Description/Description';
 import CardWrapper from '../CardWrapper/CardWrapper';
 import Spinner from '../Spinner/Spinner';
+import styles from './Card.less';
 
 type Props = {
   className?: string;
@@ -13,7 +14,7 @@ type Props = {
 const Card: React.FC<Props> = ({
   className, description, data, large,
 }) => (
-  <section className={className}>
+  <section className={`${styles.card} ${className || ''}`}>
     <Description>{description!}</Description>
     <CardWrapper large={large}>{data || <Spinner />}</CardWrapper>
   </section>
