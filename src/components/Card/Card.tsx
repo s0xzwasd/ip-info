@@ -1,4 +1,5 @@
 import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Description from '../Description/Description';
 import CardWrapper from '../CardWrapper/CardWrapper';
 import Spinner from '../Spinner/Spinner';
@@ -16,7 +17,11 @@ const Card: React.FC<Props> = ({
 }) => (
   <section className={`${styles.card} ${className || ''}`}>
     <Description>{description!}</Description>
-    <CardWrapper large={large}>{data || <Spinner />}</CardWrapper>
+    <CardWrapper large={large}>
+      {
+        <CopyToClipboard text={data}><p>{data}</p></CopyToClipboard> || <Spinner />
+      }
+    </CardWrapper>
   </section>
 );
 
