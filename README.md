@@ -21,7 +21,7 @@ Using the service, you can get detailed information about your IP address, brows
 
 ### Additional functionality
 
-- [ ] User can copy their IP address.
+- [x] User can copy their IP address.
 
 ### Used technologies and libraries
 
